@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-07 20:53+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: contact/templates/contact/thanks.html:11
+msgid "Thank you. We will get in contact with you as soon as possible!"
+msgstr ""
+
+#: templates/base.html:14 templates/index.html:44
+msgid "Online Services for Healthcare"
+msgstr ""
+
+#: templates/base.html:67
+msgid "Toggle navigation"
+msgstr ""
+
+#: templates/base.html:84
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:85 templates/index.html:126
+msgid "Service"
+msgstr ""
+
+#: templates/base.html:86
+msgid "Portfolio"
+msgstr ""
+
+#: templates/base.html:89
+msgid "Contact"
+msgstr ""
+
+#: templates/base.html:137
+msgid "Copyright &copy; 2016 Developed by"
+msgstr ""
+
+#: templates/index.html:18
+msgid "Software Development <br> for Doctors and Scientists"
+msgstr ""
+
+#: templates/index.html:19
+msgid ""
+"Professional Development of Medical Software <br> and Algorithms to analyze "
+"medical information"
+msgstr ""
+
+#: templates/index.html:20 templates/index.html:33 templates/index.html:46
+#: templates/index.html:402
+msgid "Contact US"
+msgstr ""
+
+#: templates/index.html:31 templates/index.html:155
+msgid "Bioinformatics Analysis"
+msgstr ""
+
+#: templates/index.html:32
+msgid ""
+"Human Genome and Exome Analysis <br> Diagnosis of Human Diseases such as "
+"Cancer and Mendelian Disorders"
+msgstr ""
+
+#: templates/index.html:45
+msgid "Development of online services for doctors and scientists"
+msgstr ""
+
+#: templates/index.html:90
+msgid "Recent Works"
+msgstr ""
+
+#: templates/index.html:93
+msgid ""
+"Mendel,MD - A software for diagnosing patients with Mendelian Disorders. "
+"<br> <br> We integrated  bleeding edge softwares, technologies and databases "
+"in order to provide the best up-to-date annotation for human genomes and "
+"exomes. We helped to solve hundreds of clinical cases."
+msgstr ""
+
+#: templates/index.html:96
+msgid ""
+"Haplocyp - A software for identifying haplotype and defining drug dosage and "
+"enzimatic activity. <br><br> We use a FASTA file as an input and align it "
+"against the reference gene using BLAST. After the alignment we identify "
+"variants and with this information we can predict the haplotype of each "
+"patient."
+msgstr ""
+
+#: templates/index.html:99
+msgid ""
+"Biocloud - Online Services for Doctors and Scientists.<br><br> Here you can "
+"upload your FASTQ, BAM or VCF files. You can keep them stored safely very "
+"cheaply and perform analysis such as assembly, alignment and variant calling."
+msgstr ""
+
+#: templates/index.html:106
+msgid "Welcome To Our Site"
+msgstr ""
+
+#: templates/index.html:109
+msgid ""
+"Hello! My name is Raony Guimarães and I'm the CEO of TorchMed. After "
+"spending 5 years doing a PhD in Bioinformatics and more than 10 years "
+"working with Web Development I decided it was about time to gather all this "
+"knowledge and create a company that would focus on helping doctors and "
+"scientists with their daily activities with data analysis and to help "
+"improve the life of patients through the use of bleeding edge technologies. "
+"Please get in touch with us if you think there is anything we can do to help "
+"improve your life and business. Just one more thing: We Love Open Source!"
+msgstr ""
+
+#: templates/index.html:127
+msgid "The Key Features of our Job"
+msgstr ""
+
+#: templates/index.html:135
+msgid "Software Development"
+msgstr ""
+
+#: templates/index.html:136
+msgid ""
+"Native software development for MacOS, Windows and Linux and mobile software "
+"for Android, iOS and Windows Phone."
+msgstr ""
+
+#: templates/index.html:145
+msgid "Data Analysis"
+msgstr ""
+
+#: templates/index.html:146
+msgid ""
+"We use deep learning and machine learning algorithms to analyze your data. "
+"We create beautiful and meaningful visualizations."
+msgstr ""
+
+#: templates/index.html:156
+msgid ""
+"Genome Sequencing, Alignment, Assembly, Variant Calling, Protein Simulations "
+"and Diagnosis of Human Diseases."
+msgstr ""
+
+#: templates/index.html:166
+msgid "Web Development"
+msgstr ""
+
+#: templates/index.html:167
+msgid ""
+"Best online services for Doctors and Scientists. REST Framework API, "
+"Dashboards, E-mail Notifications and Payments Trasactions."
+msgstr ""
+
+#: templates/index.html:182
+msgid "FEATURED PROJECTS"
+msgstr ""
+
+#: templates/index.html:183
+msgid ""
+"Here you can find a list of the previous projects that we have developed."
+msgstr ""
+
+#: templates/index.html:188 templates/index.html:191
+msgid ""
+"Online Sofware for helping with the diagnosis of human Mendelian Disorders."
+msgstr ""
+
+#: templates/index.html:200 templates/index.html:203
+msgid "Website with surveys for ranking doctors."
+msgstr ""
+
+#: templates/index.html:202 templates/index.html:206
+msgid "My Doctor"
+msgstr ""
+
+#: templates/index.html:212 templates/index.html:215
+msgid ""
+"Haplotyping of alleles of gene CYP2D6 to define enzymatic activity and drug "
+"dosage."
+msgstr ""
+
+#: templates/index.html:224 templates/index.html:227
+msgid "Automation of complicated tasks using simple and intuitive interfaces."
+msgstr ""
+
+#: templates/index.html:236 templates/index.html:239
+msgid ""
+"You can manage your information using modern dashboards that allow you to "
+"see an overview of all the tasks available in the system."
+msgstr ""
+
+#: templates/index.html:248 templates/index.html:251
+msgid ""
+"Website to bring the most up to date information about medicine to patients."
+msgstr ""
+
+#: templates/index.html:250 templates/index.html:254
+msgid "Future Medicine"
+msgstr ""
+
+#: templates/index.html:380
+msgid "FOLLOW US"
+msgstr ""
+
+#: templates/index.html:381
+msgid "Please support us in our social media!"
+msgstr ""
+
+#: templates/index.html:403
+msgid "Leave a Message and we will get in contact with you"
+msgstr ""
+
+#: templates/index.html:410
+msgid "Your Name..."
+msgstr ""
+
+#: templates/index.html:413
+msgid "Your Email..."
+msgstr ""
+
+#: templates/index.html:416
+msgid "Subject..."
+msgstr ""
+
+#: templates/index.html:419
+msgid "Message..."
+msgstr ""
+
+#: templates/index.html:421
+msgid "Send"
+msgstr ""
+
+#: templates/index.html:428
+msgid "Warsaw, Masovian"
+msgstr ""
+
+#: templates/index.html:428
+msgid "Poland"
+msgstr ""
+
+#: templates/index.html:429
+msgid "Phone"
+msgstr ""
+
+#: templates/index.html:430
+msgid "contact@torchmed.com"
+msgstr ""
+
+#: torchmed/settings.py:118
+msgid "English"
+msgstr ""
+
+#: torchmed/settings.py:119
+msgid "Portuguese"
+msgstr ""
+
+#: torchmed/settings.py:120
+msgid "Polish"
+msgstr ""

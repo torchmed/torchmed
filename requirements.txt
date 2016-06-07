@@ -1,0 +1,5 @@
+Django
+gunicorn
+psycopg2
+Fabric3
+django-environ

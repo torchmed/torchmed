@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+{% load upload_tags %}
+
+{% block css %} 
+
+    <!-- Bootstrap styles -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}js/jquery-fileupload/css/jquery.fileupload-ui.css">
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="{{ STATIC_URL }}js/jquery-fileupload/css/jquery.fileupload-ui-noscript.css"></noscript>
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+
+    <!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <!-- upper section -->
+  <div class="row">
+   <div class="col-sm-2">
+    <!-- left -->
+    <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
+    <hr>
+
+    <ul class="nav nav-stacked">
+      <li><a href="{% url 'files_index' %}"><i class="glyphicon glyphicon-file"></i> Files </a></li>
+      <li><a href="{% url 'genomebrowser_index' %}"><i class="glyphicon glyphicon-cloud"></i> Genome Browser </a></li>
+      
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-flash"></i> Alerts</a></li>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-link"></i> Links</a></li>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-list-alt"></i> Reports</a></li>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-book"></i> Books</a></li>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-briefcase"></i> Tools</a></li>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
+    </ul>
+
+    <hr>
+
+  </div><!-- /span-3 -->
+  <div class="col-sm-10">
+
+    <!-- column 2 -->	
+    <h3><i class="glyphicon glyphicon-dashboard"></i> Dashboard</h3>  
+
+    <hr>
+
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      Please remember to <a href="#">Logout</a> for classified security.
+    </div>
+
+
+    <div class="row">
+      <!-- center left-->	
+
+      <div class="col-md-7">
+
+        <form id="fileupload" method="post" action="{% url 'upload' %}" enctype="multipart/form-data">{% csrf_token %}
+          <input id="id_name" type="hidden" name="name" value=" " />
+          <input id="id_description" type="hidden" name="description" value=" " />
+
+          <div class="row fileupload-buttonbar">
+            <div class="col-lg-7">
+              <!-- The fileinput-button span is used to style the file input field as button -->
+              <span class="btn btn-success fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>Please, Select your FASTQ/BAM/VCF files...</span>
+                <input id="id_file" type="file" name="file" multiple>
+              </span>
+              <!-- The loading indicator is shown during file processing -->
+              <span class="fileupload-loading"></span>
+            </div>
+            <!-- The global progress information -->
+            <div class="col-lg-5 fileupload-progress fade">
+              <!-- The global progress bar -->
+              <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+              </div>
+              <!-- The extended global progress information -->
+              <div class="progress-extended">&nbsp;</div>
+            </div>
+          </div>
+
+          <!-- The table listing the files available for upload/download -->
+          <table role="presentation" class="table table-striped">
+            <thead>
+              <tr><th>id</th><th>name</th><th>status</th></tr>
+            </thead>
+            <tbody class="files">
+            </tbody>
+            <tbody>
+              {% if user_files %}
+              {% for file in user_files %}
+              <tr><td>{{file.id}}</td><td>{{file.name}}</td><td>{{file.status}}</td></tr>
+              {% endfor %}
+              {% endif %}
+            </tbody>
+          </table>
+
+
+
+          <div class="btn-group btn-group-justified">
+
+            <span class="btn btn-success fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i><br>
+              Upload Files
+                <input id="id_file" type="file" name="file" multiple>
+              </span>
+
+            <a href="{% url 'upload' %}" class="btn btn-info col-sm-3">
+              <i class="glyphicon glyphicon-plus"></i><br>
+              Upload Files
+            </a>
+            <a href="#" class="btn btn-info col-sm-3">
+              <i class="glyphicon glyphicon-cloud"></i><br>
+              Cloud
+            </a>
+            <a href="#" class="btn btn-info col-sm-3">
+              <i class="glyphicon glyphicon-cog"></i><br>
+              Tools
+            </a>
+            <a href="#" class="btn btn-info col-sm-3">
+              <i class="glyphicon glyphicon-question-sign"></i><br>
+              Help
+            </a>
+          </div>
+
+          <hr>
+
+          <table class="table table-striped">
+            <thead>
+              <tr><th>id</th><th>name</th><th>ROI</th><th>Source</th><th>Description and Notes</th></tr>
+            </thead>
+            <tbody>
+              {% for file in user_files %}
+              <tr><td>{{file.id}}</td><td>{{file.name}}</td><td>2.45%</td><td>Direct</td><td>justo.</td>  </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <hr>    
+          <div class="well">Inbox Messages <span class="badge pull-right">3</span></div>
+
+          <hr>
+
+          <div class="panel panel-default">
+            <div class="panel-heading"><h4>Processing Status</h4></div>
+            <div class="panel-body">
+
+              <small>Complete</small>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
+                  <span class="sr-only">72% Complete</span>
+                </div>
+              </div>
+              <small>In Progress</small>
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                  <span class="sr-only">20% Complete</span>
+                </div>
+              </div>
+              <small>At Risk</small>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                  <span class="sr-only">80% Complete</span>
+                </div>
+              </div>
+
+            </div><!--/panel-body-->
+          </div><!--/panel-->                     
+
+        </div><!--/col-->
+
+        <!--center-right-->
+        <div class="col-md-5">         
+
+          <ul class="nav nav-justified">
+            <li><a href="#"><i class="glyphicon glyphicon-cog"></i></a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-heart"></i></a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-comment"></i><span class="count">3</span></a><ul class="dropdown-menu" role="menu"><li><a href="#">1. Is there a way..</a></li><li><a href="#">2. Hello, admin. I would..</a></li><li><a href="#"><strong>All messages</strong></a></li></ul></li>
+            <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+            <li><a title="Add Widget" data-toggle="modal" href="#addWidgetModal"><span class="glyphicon glyphicon-plus-sign"></span></a></li>
+          </ul>  
+
+          <hr>
+
+          <p>
+            This is a responsive dashboard-style layout that uses <a href="http://www.getbootstrap.com">Bootstrap 3</a>. You can use this template as a starting point to create something more unique.
+          </p>
+          <p>
+            Visit the Bootstrap Playground at <a href="http://www.bootply.com">Bootply</a> to tweak this layout, or discover 1000's of Bootstrap code examples and snippets.
+          </p>
+
+          <hr>
+
+
+
+        </div><!--/col-span-6-->
+
+      </div><!--/row-->
+    </div><!--/col-span-9-->
+    
+  </div><!--/row-->
+  <!-- /upper section -->
+  
+  <!-- lower section -->
+  <div class="row">
+
+    <div class="col-md-12">
+      <hr>
+      <a href="#"><strong><i class="glyphicon glyphicon-list-alt"></i> Reports</strong></a>  
+      <hr>    
+    </div>
+    <div class="col-md-8">
+
+      <!--tabs-->
+      <div class="container">
+        <ul class="nav nav-tabs" id="myTab">
+          <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+          <li><a href="#messages" data-toggle="tab">Messages</a></li>
+          <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        </ul>
+        
+        <div class="tab-content">
+          <div class="tab-pane active" id="profile">
+            <h4><i class="glyphicon glyphicon-user"></i></h4>
+            Lorem profile dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            <p>Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+              dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+              Aliquam in felis sit amet augue.</p>
+            </div>
+            <div class="tab-pane" id="messages">
+              <h4><i class="glyphicon glyphicon-comment"></i></h4>
+              Message ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+              <p>Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                Aliquam in felis sit amet augue.</p>
+              </div>
+              <div class="tab-pane" id="settings">
+                <h4><i class="glyphicon glyphicon-cog"></i></h4>
+                Lorem settings dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                <p>Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                  dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                  Aliquam in felis sit amet augue.</p>
+                </div>
+              </div>
+            </div>
+            <!--/tabs-->
+
+            <hr>
+
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>New Requests</h4></div>
+              <div class="panel-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item active">Hosting virtual mailbox serv..</a>
+                  <a href="#" class="list-group-item">Dedicated server doesn't..</a>
+                  <a href="#" class="list-group-item">RHEL 6 install on new..</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="col-md-4">
+
+            <ul class="nav nav-pills nav-stacked">
+              <li class="nav-header"></li>
+              <li><a href="#"><i class="glyphicon glyphicon-list"></i> Layouts &amp; Templates</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="glyphicon glyphicon-briefcase"></i> Toolbox</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-link"></i> Widgets</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Reports</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-book"></i> Pages</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="glyphicon glyphicon-star"></i> Social Media</a></li>
+            </ul>
+
+            <hr>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <i class="glyphicon glyphicon-wrench pull-right"></i>
+                  <h4>Submit Request</h4>
+                </div>
+              </div>
+              <div class="panel-body">
+
+                <form class="form form-vertical">
+                  <div class="control-group">
+                    <label>Name</label>
+                    <div class="controls">
+                      <input type="text" class="form-control" placeholder="Enter Name">
+                    </div>
+                  </div>      
+                  <div class="control-group">
+                    <label>Title</label>
+                    <div class="controls">
+                      <input type="password" class="form-control" placeholder="Password">
+
+                    </div>
+                  </div>   
+                  <div class="control-group">
+                    <label>Details</label>
+                    <div class="controls">
+                      <textarea class="form-control"></textarea>
+                    </div>
+                  </div> 
+                  <div class="control-group">
+                    <label>Select</label>
+                    <div class="controls">
+                      <select class="form-control"><option>General Question</option><option>Server Issues</option><option>Billing Question</option></select>
+                    </div>
+                  </div>    
+                  <div class="control-group">
+                    <label></label>
+                    <div class="controls">
+                      <button type="submit" class="btn btn-primary">
+                        Post
+                      </button>
+                    </div>
+                  </div>   
+
+                </form>
+
+
+              </div><!--/panel content-->
+            </div><!--/panel-->
+
+            <div class="panel panel-default">
+              <div class="panel-heading"><div class="panel-title"><h4>Engagement</h4></div></div>
+              <div class="panel-body">	
+                <div class="col-xs-4 text-center"><img src="http://placehold.it/80/BBBBBB/FFF" class="img-circle img-responsive"></div>
+                <div class="col-xs-4 text-center"><img src="http://placehold.it/80/EFEFEF/555" class="img-circle img-responsive"></div>
+                <div class="col-xs-4 text-center"><img src="http://placehold.it/80/EEEEEE/222" class="img-circle img-responsive"></div>
+              </div>
+            </div><!--/panel-->
+
+          </div><!--/col-->
+
+        </div><!--/row-->
+
+      </div>
+    </form>
+
+
+    {% upload_js %}
+    
+
+{% endblock %}
+
+
+
+{% block javascript %}
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/vendor/jquery.ui.widget.js"></script>
+    <!-- The Templates plugin is included to render the upload/download listings -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/tmpl.min.js"></script>
+    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/load-image.min.js"></script>
+    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/canvas-to-blob.min.js"></script>
+    <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/bootstrap.min.js"></script>
+    <!-- blueimp Gallery script -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.blueimp-gallery.min.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload.js"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload-process.js"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload-image.js"></script>
+    <!-- The File Upload audio preview plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload-audio.js"></script>
+    <!-- The File Upload video preview plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload-video.js"></script>
+    <!-- The File Upload validation plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload-validate.js"></script>
+    <!-- The File Upload user interface plugin -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/jquery.fileupload-ui.js"></script>
+    <!-- The main application script -->
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/main.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/locale.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-fileupload/js/csrf.js"></script>
+    <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
+<!--[if gte IE 8]>
+<script src="{{ STATIC_URL }}js/jquery-fileupload/js/cors/jquery.xdr-transport.js"></script>
+<![endif]-->
+<script>
+  $('#fileupload').fileupload({
+    autoUpload: true,
+    sequentialUploads: true
+  });
+</script>
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-bootstrap/js/jquery-ui-1.9.0.custom.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-bootstrap/js/init-ui.js"></script>
+
+{% endblock %}

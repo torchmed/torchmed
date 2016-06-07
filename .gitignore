@@ -1,0 +1,6 @@
+data/
+devlog.txt
+torchmed.db
+*.env
+__pycache__/
+*.py[cod]
