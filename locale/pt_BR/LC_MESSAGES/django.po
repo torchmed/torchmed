@@ -96,8 +96,8 @@ msgid ""
 msgstr ""
 "Mendel, MD - Um software para o diagnóstico de pacientes com doenças "
 "mendelianas<br><br> Nós integramos softwares, tecnologias e bancos de dados "
-"de pontaa fim de proporcionar a melhor anotação para genomas humanose "
-"exomes. Esse programa ajudou a resolver centenas de casos clínicos. "
+"de ponta fim de proporcionar a melhor anotação para genomas e exomas "
+"humanos. Esse programa ajudou a resolver centenas de casos clínicos. "
 
 #: templates/index.html:96
 msgid ""
