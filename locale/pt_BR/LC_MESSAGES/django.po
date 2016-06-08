@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-07 20:53+0200\n"
+"POT-Creation-Date: 2016-06-08 12:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -300,14 +300,14 @@ msgstr "Telefone"
 msgid "contact@torchmed.com"
 msgstr "contato@torchmed.com"
 
-#: torchmed/settings.py:118
+#: torchmed/settings.py:116
 msgid "English"
 msgstr "Inglês"
 
-#: torchmed/settings.py:119
+#: torchmed/settings.py:117
 msgid "Portuguese"
 msgstr "Português"
 
-#: torchmed/settings.py:120
+#: torchmed/settings.py:118
 msgid "Polish"
 msgstr "Polonês"
