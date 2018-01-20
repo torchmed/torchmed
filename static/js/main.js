@@ -30,7 +30,7 @@ $(function() {
             init = function() {
 
                 initEvents();
-                
+
             },
             initEvents = function() {
 
@@ -43,30 +43,30 @@ $(function() {
                 } );
 
                 $navArrows.children( ':first' ).on( 'click', function() {
-                    
+
                     slitslider.previous();
                     return false;
 
                 } );
 
                 $nav.each( function( i ) {
-                
+
                     $( this ).on( 'click', function( event ) {
-                        
+
                         var $dot = $( this );
-                        
+
                         if( !slitslider.isActive() ) {
 
                             $nav.removeClass( 'nav-dot-current' );
                             $dot.addClass( 'nav-dot-current' );
-                        
+
                         }
-                        
+
                         slitslider.jump( i + 1 );
                         return false;
-                    
+
                     } );
-                    
+
                 } );
 
             };
@@ -101,7 +101,7 @@ $(document).ready(function(){
 			console.log('done scrolling');
 		}
 	});
-	
+
     $(window).scroll(function () {
         if ($(window).scrollTop() > 400) {
             $(".navbar-brand a").css("color","#fff");
@@ -111,23 +111,23 @@ $(document).ready(function(){
             $("#navigation").addClass("animated-header");
         }
     });
-	
+
 	/* ========================================================================= */
 	/*	Fix Slider Height
-	/* ========================================================================= */	
+	/* ========================================================================= */
 
     // Slider Height
     var slideHeight = $(window).height();
-    
+
     $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
 
     $(window).resize(function(){'use strict',
         $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
     });
-	
-	
-	
-	$("#works, #testimonial").owlCarousel({	 
+
+
+
+	$("#works, #testimonial").owlCarousel({
 		navigation : true,
 		pagination : false,
 		slideSpeed : 700,
@@ -135,8 +135,8 @@ $(document).ready(function(){
 		singleItem:true,
 		navigationText: ["<i class='fa fa-angle-left fa-lg'></i>","<i class='fa fa-angle-right fa-lg'></i>"]
 	});
-	
-	
+
+
 	/* ========================================================================= */
 	/*	Featured Project Lightbox
 	/* ========================================================================= */
@@ -151,15 +151,15 @@ $(document).ready(function(){
 		closeSpeed  : 550,
 
 		closeClick : true,
-			
+
 		beforeShow: function () {
 			this.title = $(this.element).attr('title');
 			this.title = '<h3>' + this.title + '</h3>' + '<p>' + $(this.element).parents('.portfolio-item').find('img').attr('alt') + '</p>';
 		},
-		
+
 		helpers : {
-			title : { 
-				type: 'inside' 
+			title : {
+				type: 'inside'
 			},
 			overlay : {
 				css : {
@@ -168,7 +168,7 @@ $(document).ready(function(){
 			}
 		}
 	});
-	
+
 });
 
 
@@ -181,10 +181,10 @@ function init() {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
-	    var myLatLng = new google.maps.LatLng(52.1980116, 20.9809041);
+	    var myLatLng = new google.maps.LatLng(53.296138,-6.1548331);
 
 	    var mapOptions = {
-	        zoom: 15,
+	        zoom: 12,
 	        center: myLatLng,
 	        disableDefaultUI: true,
 	        scrollwheel: false,
@@ -193,7 +193,7 @@ function init() {
 	        scaleControl: false,
 	        draggable: true,
 
-        // How you would like to style the map. 
+        // How you would like to style the map.
         // This is where you would paste any style found on Snazzy Maps.
         styles: [{
             featureType: 'water',
@@ -244,7 +244,7 @@ function init() {
         }]
     };
 
-    // Get the HTML DOM element that will contain your map 
+    // Get the HTML DOM element that will contain your map
     // We are using a div with id="map" seen below in the <body>
     var mapElement = document.getElementById('map-canvas');
 
@@ -253,7 +253,7 @@ function init() {
 
     // Let's also add a marker while we're at it
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(52.1980116, 20.9809041),
+        position: new google.maps.LatLng(53.296138,-6.1548331),
         map: map,
 		icon: '/static/img/icons/map-marker.png',
     });
